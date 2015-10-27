@@ -21,5 +21,6 @@ class UsersController < ApplicationController
 		
 		#redirect them somewhere
 	end
+	
 
 end
