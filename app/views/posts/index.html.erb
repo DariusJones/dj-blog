@@ -1,0 +1,17 @@
+<h1>Welcome to my Page</h1>
+
+<hr>
+
+<% @posts.each do |post| %>
+
+<p>
+	<%= post.body %>
+</p>
+<% if post.user %>
+	<strong>Written by:</strong>
+	<%= post.user.username %>
+
+<% end %>
+<br><br>
+
+<% end %>

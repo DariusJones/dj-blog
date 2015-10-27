@@ -1,0 +1,7 @@
+<%= form_for Post.new , url: user_posts_path(session[:user_id]) do |f| %>
+	
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+	<%= f.submit %>
+
+<% end %>
