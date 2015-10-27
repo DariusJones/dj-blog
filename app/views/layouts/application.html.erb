@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DjBlog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% if flash[:notice] %>
+	<h3>
+		<%= flash[:notice] %>
+	</h3>
+	<% end %>
+
+	<% if flash[:alert] %>
+	<h3>
+		<%= flash[:alert] %>
+	</h3>
+	<% end %>
+
+<%= yield %>
+
+</body>
+</html>
