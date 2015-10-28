@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/users/sign_in" => "sessions#new"
   post "/users/sign_in" => "sessions#create"
   get "/users/sign_out" => "sessions#destroy"
+  get 'search' => "users#search"
   resources :users do 
     resources :posts do
     end

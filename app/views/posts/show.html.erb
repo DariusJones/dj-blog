@@ -10,6 +10,7 @@
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
 	<%= comment.body %>
+	<br><br>
 	<strong>Comment by:</strong>
 	<%= comment.user.username %>
 	<br><br>
@@ -23,3 +24,7 @@
 	<%= t.submit %>
 
 	<% end %>
+
+
+
+<%= link_to
