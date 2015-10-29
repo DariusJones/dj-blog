@@ -1,0 +1,10 @@
+<p>
+	<strong>These are posts by:</strong>
+	<%= @user.username %>
+</p>
+<br>
+<% @user.posts.each do |post| %>
+	<li><%= post.body %></li>
+
+<% end %>
+
