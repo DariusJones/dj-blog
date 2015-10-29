@@ -2,6 +2,29 @@ class UsersController < ApplicationController
 	def new
 		@user = User.new
 	end
+	def index
+		@users = User.all
+	end
+	def edit
+		respond_to do |format|
+	      if @user.update(user_params)
+	        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+	        format.json { render :show, status: :ok, location: @user }
+	      else
+	        format.html { render :edit }
+	        format.json { render json: @user.errors, status: :unprocessable_entity }
+	      end
+	    end 
+	end
+
+	def destroy
+	@user = User.find(params[:id])
+	@user.destroy
+	redirect_to :back
+	flash[:notice] = "User was deleted correctly"
+	end
+
+
 	def create
 		puts "@@@@@@@ ARE PARAMS@@@@@"
 		puts params
@@ -12,6 +35,7 @@ class UsersController < ApplicationController
 		if @user.save
 			# if it was, alert the user it was
 			flash[:notice] = "Users was created"
+			redirect_to(users_path) and return
 		else
 			#if not, tell them it wasn't
 			flash[:alert] = "User was a problem saving"

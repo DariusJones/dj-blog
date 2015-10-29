@@ -1,0 +1,17 @@
+<h1>Check out some of our users' recent profiles</h1>
+ <br>
+<table border = 1px>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= link_to 'Show posts', user %></td>
+        <td><%= link_to 'Edit posts', edit_user_path(user) %></td> 
+        <td><%= link_to 'Delete User', user, method: :delete %></td>
+        <br>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+  <%= link_to 'Create a new User', new_user_path %>
