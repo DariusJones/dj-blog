@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+	def index
+		@comments = Comment.all
+	end
 	def create 
 		@comment = Comment.new(params[:comment])
 		@comment.user_id = session[:user_id]
@@ -10,4 +13,8 @@ class CommentsController < ApplicationController
 		end
 		redirect_to :back
 	end
+	def show 
+		@comments = Comment.all
+	end
+
 end

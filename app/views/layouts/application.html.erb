@@ -18,7 +18,8 @@
 	<a class="btn btn-default" href="/users/sign_out" role="button">Sign Out</a>
 	<a class="btn btn-default" href="/" role="button">Home</a>
 	<a class="btn btn-default" href="/users" role="button">Users</a>
-	<a class="btn btn-default" href="/users/" role="button">You are logged as :<%= current_user.username %></a>
+	<a class="btn btn-default" href="/users/<%=session[:user_id]%>/posts" role="button">My Posts</a>
+	<a class="btn btn-default" href="/users/" role="button">You are logged as : <%= current_user.username if !current_user.nil? %></a>
   </div>
 
 </div>

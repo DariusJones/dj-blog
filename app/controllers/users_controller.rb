@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :set_user, only: [:show, :edit, :update, :destroy]
+
 	def new
 		@user = User.new
 	end
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
 	@user = User.find(params[:id])
 	@user.destroy
 	redirect_to :back
-	flash[:notice] = "User was deleted correctly"
+	flash[:notice] = "User was deleted"
 	end
 
 	def show
@@ -40,10 +42,18 @@ class UsersController < ApplicationController
 			flash[:alert] = "User was a problem saving"
 		end
 		redirect_to root_path
-		 
-		
 		#redirect them somewhere
 	end
+	private
+  
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+ 
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
 	
 
 end

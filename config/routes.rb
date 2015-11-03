@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   post "/users/sign_in" => "sessions#create"
   get "/users/sign_out" => "sessions#destroy"
   get 'search' => "users#search"
+  get "users/:user_id/posts" => "posts#index"
   resources :users do 
     resources :posts do
+      resources :comments
     end
   end
-  resources :comments
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

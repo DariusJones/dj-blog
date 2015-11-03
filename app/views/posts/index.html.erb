@@ -4,14 +4,17 @@
 
 <% @posts.each do |post| %>
 
-<p>
-	<%= post.body %>
-</p>
-<% if post.user %>
-	<strong>Written by:</strong>
-	<%= post.user.username %>
+	<p>
+		<%= post.body %>
+	</p>
+		<% if post.user %>
+			<strong>Written by:</strong>
+			<%= post.user.username %>
+
+		<% end %>
+	<br><br>
 
 <% end %>
-<br><br>
 
-<% end %>
+
+<%= link_to "New Post", new_user_post_path(session[:user_id]) %>
